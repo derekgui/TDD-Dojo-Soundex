@@ -4,10 +4,10 @@ This project is the first TDD Dojo series project that I was inspired by the boo
 It serves as a purpose that continuely sharpen my tdd skills with repeatedly practice agains the same example. 
 As in the book saying: In addition to continually seeking new knowledge, successful professionals practice their craft on a regular basis. Musicians use scales as warm-up exercises, cosmetic surgeons practice on cadavers, athletes run drills and scrimmages, speakers warm up in front of a mirror, and martial arts practioners practice **katas**. 
 
-###Note
+### Note
 Each branch is a new attempt and the master branch is project starter code.
 
-###Spec
+### Spec
 The Soundex algorithm encodes words into a letter plus three digits, mapping similarly sounding words to the same encoding which helps make searching more effective. Here are the rules, per [Wikipedia](http://en.wikipedia.org/wiki/Soundex):
 1. Retain the first letter. Drop all other occurrences of a, e, i, o, u, y, h, w.
 2. Replace consonants with digits (after the first letter):
