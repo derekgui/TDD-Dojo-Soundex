@@ -1,4 +1,5 @@
-#TDD Dojo Soundex project
+# TDD Dojo Soundex project
+
 This project is the first TDD Dojo series project that I was inspired by the book [Modern C++ Programming with Test-Driven Development](https://pragprog.com/book/lotdd/modern-c-programming-with-test-driven-development)-`Jeff Langr`. 
 It serves as a purpose that continuely sharpen my tdd skills with repeatedly practice agains the same example. 
 As in the book saying: In addition to continually seeking new knowledge, successful professionals practice their craft on a regular basis. Musicians use scales as warm-up exercises, cosmetic surgeons practice on cadavers, athletes run drills and scrimmages, speakers warm up in front of a mirror, and martial arts practioners practice **katas**. 
@@ -41,6 +42,7 @@ cmake ..
 make
 ```
 ### Run Testing
+
 The executables will be placed in the `bin` directory. From within `build`, you can run the project as follows:
 ```
 ../bin/test
