@@ -4,6 +4,22 @@ This project is the first TDD Dojo series project that I was inspired by the boo
 It serves as a purpose that continuely sharpen my tdd skills with repeatedly practice agains the same example. 
 As in the book saying: In addition to continually seeking new knowledge, successful professionals practice their craft on a regular basis. Musicians use scales as warm-up exercises, cosmetic surgeons practice on cadavers, athletes run drills and scrimmages, speakers warm up in front of a mirror, and martial arts practioners practice **katas**. 
 
+###Note
+Each branch is a new attempt and the master branch is project starter code.
+
+###Spec
+The Soundex algorithm encodes words into a letter plus three digits, mapping similarly sounding words to the same encoding which helps make searching more effective. Here are the rules, per [Wikipedia](http://en.wikipedia.org/wiki/Soundex):
+1. Retain the first letter. Drop all other occurrences of a, e, i, o, u, y, h, w.
+2. Replace consonants with digits (after the first letter):
+    - b, f, p, v: 1
+    - c, g, j, k, q, s, x, z: 2
+    - d, t : 3
+    - l: 4
+    - m, n: 5
+    - r: 6
+3. If two adjacent letters encode to the same number, encode them instead as a single number. Also, do so if two letters with the same number are separated by h or w (but code them twice if separated by a vowel). This rule also applies to the first letter.
+4. Stop when you have a letter and three digits. Zero-pad if needed.
+
 ## Dependencies for Running Locally
 * cmake >= 2.8
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
