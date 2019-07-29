@@ -4,9 +4,6 @@ This project is the first TDD Dojo series project that I was inspired by the boo
 It serves as a purpose that continuely sharpen my tdd skills with repeatedly practice agains the same example. 
 As in the book saying: In addition to continually seeking new knowledge, successful professionals practice their craft on a regular basis. Musicians use scales as warm-up exercises, cosmetic surgeons practice on cadavers, athletes run drills and scrimmages, speakers warm up in front of a mirror, and martial arts practioners practice **katas**. 
 
-###Note
-Each attempt is a separate branch and the master branch is the starter code.
-
 ## Dependencies for Running Locally
 * cmake >= 2.8
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
