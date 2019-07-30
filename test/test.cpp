@@ -22,3 +22,8 @@ TEST_F(SoundexEncoding, PaddingOtherLettersWithZero)
 
     ASSERT_THAT(soundex.encode("I"), Eq("I000"));
 }
+
+TEST_F(SoundexEncoding, ReplaceConsonantsWithCorrespondDigits)
+{
+    ASSERT_THAT(soundex.encode("An"), Eq("A500"));
+}
