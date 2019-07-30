@@ -29,3 +29,10 @@ TEST_F(SoundexEncoding, ReplaceConsonantsWithCorrespondDigits)
     EXPECT_THAT(soundex.encode("Ab"), Eq("A100"));
     EXPECT_THAT(soundex.encode("Ac"), Eq("A200"));
 }
+
+TEST_F(SoundexEncoding, MultipleLettersInSingleWord)
+{
+    auto encoded = soundex.encode("Abcd");
+
+    ASSERT_THAT(encoded, Eq("A123"));
+}
