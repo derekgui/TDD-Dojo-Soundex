@@ -15,3 +15,10 @@ TEST_F(SoundexEncoding, TestOneLetterInSigleLtterWord)
 
     ASSERT_THAT(soundex.encode("A"), Eq("A"));
 }
+
+TEST_F(SoundexEncoding, PaddingOtherLettersWithZero)
+{
+    auto encoded = soundex.encode("I");
+
+    ASSERT_THAT(soundex.encode("I"), Eq("I000"));
+}
