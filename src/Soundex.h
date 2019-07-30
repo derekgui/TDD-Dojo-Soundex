@@ -13,7 +13,13 @@ public:
 private:
     std::string zeroPad(const std::string &word) const
     {
-        return word + "000";
+        if (word.length() == 1)
+            return word.substr(0, 1) + "000";
+        else
+        {
+            if (word[1] == 'n')
+                return word.substr(0, 1) + "500";
+        }
     }
 };
 
