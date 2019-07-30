@@ -49,12 +49,17 @@ private:
 
         for (auto letter : word)
         {
-            if (result.length() == MAX_LETTERS - 1)
+            if (isComplete(result))
                 break;
             result += encodedDigit(letter);
         }
 
         return result;
+    }
+
+    bool isComplete(const std::string &result) const
+    {
+        return result.length() == MAX_LETTERS - 1;
     }
 };
 
