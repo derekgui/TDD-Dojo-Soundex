@@ -36,3 +36,10 @@ TEST_F(SoundexEncoding, MultipleLettersInSingleWord)
 
     ASSERT_THAT(encoded, Eq("A123"));
 }
+
+TEST_F(SoundexEncoding, MoreThanFourLettersWord)
+{
+    auto encoded = soundex.encode("Abcdl");
+
+    ASSERT_THAT(encoded.length(), Eq(4u));
+}
