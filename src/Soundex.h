@@ -12,11 +12,15 @@ public:
     }
 
 private:
+    static const size_t MAX_LETTERS{4};
+
+    const std::unordered_map<char, std::string> encode_map{{'b', "1"}, {'f', "1"}, {'p', "1"}, {'v', "1"}, {'c', "2"}, {'g', "2"}, {'j', "2"}, {'k', "2"}, {'q', "2"}, {'s', "2"}, {'x', "2"}, {'z', "2"}, {'d', "3"}, {'t', "3"}, {'l', "4"}, {'m', "5"}, {'n', "5"}, {'r', "6"}};
+
     std::string zeroPad(const std::string &word) const
     {
-        auto zeros = 4 - word.length();
+        auto zerosNeeded = MAX_LETTERS - word.length();
 
-        return head(word) + encodedDigits(tail(word)) + std::string(zeros, '0');
+        return head(word) + encodedDigits(tail(word)) + std::string(zerosNeeded, '0');
     }
 
     std::string head(const std::string &word) const
@@ -29,12 +33,14 @@ private:
         return word.substr(1, 3);
     }
 
+    bool isLetterFound(const char letter) const
+    {
+        return encode_map.find(letter) != encode_map.end();
+    }
+
     std::string encodedDigit(const char letter) const
     {
-        const std::unordered_map<char, std::string> encode_map{{'b', "1"}, {'f', "1"}, {'p', "1"}, {'v', "1"}, {'c', "2"}, {'g', "2"}, {'j', "2"}, {'k', "2"}, {'q', "2"}, {'s', "2"}, {'x', "2"}, {'z', "2"}, {'d', "3"}, {'t', "3"}, {'l', "4"}, {'m', "5"}, {'n', "5"}, {'r', "6"}};
-
-        auto it = encode_map.find(letter);
-        return (it != encode_map.end()) ? it->second : "0";
+        return isLetterFound(letter) ? encode_map.find(letter)->second : "0";
     }
 
     std::string encodedDigits(const std::string &word) const
