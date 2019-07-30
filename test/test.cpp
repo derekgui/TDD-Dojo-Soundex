@@ -13,19 +13,12 @@ TEST_F(SoundexEncoding, TestOneLetterInSigleLtterWord)
 {
     auto encoded = soundex.encode("A");
 
-    ASSERT_THAT(encoded, Eq("A000"));
+    ASSERT_THAT(soundex.encode("A"), Eq("A000"));
 }
 
 TEST_F(SoundexEncoding, PaddingOtherLettersWithZero)
 {
     auto encoded = soundex.encode("I");
 
-    ASSERT_THAT(encoded, Eq("I000"));
-}
-
-TEST_F(SoundexEncoding, TestTwoletterWord)
-{
-    auto encoded = soundex.encode("An");
-
-    ASSERT_THAT(encoded, Eq("A500"));
+    ASSERT_THAT(soundex.encode("I"), Eq("I000"));
 }
