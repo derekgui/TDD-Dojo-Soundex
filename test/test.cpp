@@ -1,10 +1,17 @@
 #include "gmock/gmock.h"
 #include "Soundex.h"
 
-TEST(SoundexEncoding, TestOneLetterInSigleLtterWord)
-{
-    Soundex soundex;
+using ::testing::Eq;
 
-    ASSERT_THAT(soundex.encode("A"), testing::Eq("A"));
-    ASSERT_THAT(soundex.encode("I"), testing::Eq("I"));
+class SoundexEncoding : public ::testing::Test
+{
+public:
+    Soundex soundex;
+};
+
+TEST_F(SoundexEncoding, TestOneLetterInSigleLtterWord)
+{
+    auto encoded = soundex.encode("A");
+
+    ASSERT_THAT(soundex.encode("A"), Eq("A"));
 }
