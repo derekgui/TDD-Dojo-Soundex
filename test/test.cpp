@@ -27,5 +27,5 @@ TEST_F(SoundexEncoding, ReplaceConsonantsWithCorrespondDigits)
 {
     EXPECT_THAT(soundex.encode("An"), Eq("A500"));
     EXPECT_THAT(soundex.encode("Ab"), Eq("A100"));
-    EXPECT_THAT(soundex.encode("Ab"), Eq("A100"));
+    EXPECT_THAT(soundex.encode("Ac"), Eq("A200"));
 }
