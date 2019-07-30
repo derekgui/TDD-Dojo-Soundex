@@ -8,7 +8,7 @@ class Soundex
 public:
     std::string encode(const std::string &word) const
     {
-        return zeroPad(word);
+        return zeroPad(head(word) + encodedDigits(tail(word)));
     }
 
 private:
@@ -20,7 +20,7 @@ private:
     {
         auto zerosNeeded = MAX_LETTERS - word.length();
 
-        return head(word) + encodedDigits(tail(word)) + std::string(zerosNeeded, '0');
+        return word + std::string(zerosNeeded, '0');
     }
 
     std::string head(const std::string &word) const
@@ -47,14 +47,14 @@ private:
     {
         std::string result;
 
-        if (word.length() > 0)
+        for (auto letter : word)
         {
-            for (auto letter : word)
-                result += encodedDigit(letter);
-            return result;
+            if (result.length() == MAX_LETTERS - 1)
+                break;
+            result += encodedDigit(letter);
         }
 
-        return "";
+        return result;
     }
 };
 
