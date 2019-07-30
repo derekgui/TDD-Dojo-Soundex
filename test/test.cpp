@@ -13,7 +13,7 @@ TEST_F(SoundexEncoding, TestOneLetterInSigleLtterWord)
 {
     auto encoded = soundex.encode("A");
 
-    ASSERT_THAT(soundex.encode("A"), Eq("A"));
+    ASSERT_THAT(soundex.encode("A"), Eq("A000"));
 }
 
 TEST_F(SoundexEncoding, PaddingOtherLettersWithZero)
