@@ -92,3 +92,8 @@ TEST_F(SoundexEncoding, CaseMutualWhenEncode)
 {
     ASSERT_THAT(soundex.encode("AbCd"), Eq("A123"));
 }
+
+TEST_F(SoundexEncoding, CombinesFirstTwoLetterDuplicates)
+{
+    ASSERT_THAT(soundex.encode("Bbcd"), Eq("B230"));
+}
