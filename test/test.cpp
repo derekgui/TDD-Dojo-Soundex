@@ -97,3 +97,8 @@ TEST_F(SoundexEncoding, CombinesFirstTwoLetterDuplicates)
 {
     ASSERT_THAT(soundex.encode("Bbcd"), Eq("B230"));
 }
+
+TEST_F(SoundexEncoding, PassByEmptyWord)
+{
+    ASSERT_THAT(soundex.encode(""), Eq(""));
+}
