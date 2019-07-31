@@ -75,3 +75,15 @@ TEST_F(SoundexEncoding, TwoLetterWithSameDigitSeparatedByVowel)
     auto encoded = soundex.encode("Babebob");
     ASSERT_THAT(encoded, Eq("B111"));
 }
+
+TEST_F(SoundexEncoding, TwoLetterWithSameDigitSeparatedByHW)
+{
+
+    auto encoded = soundex.encode("Awbhbwb");
+    ASSERT_THAT(encoded, Eq("A100"));
+}
+
+TEST_F(SoundexEncoding, UppercaseFirstLetter)
+{
+    ASSERT_THAT(soundex.encode("abcd"), ::testing::StartsWith("A"));
+}
