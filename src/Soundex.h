@@ -51,10 +51,20 @@ private:
         {
             if (isComplete(result))
                 break;
-            result += encodedDigit(letter);
+
+            if (encodedDigit(letter) != lastDigit(result))
+                result += encodedDigit(letter);
         }
 
         return result;
+    }
+
+    std::string lastDigit(const std::string &result) const
+    {
+        if (result.empty())
+            return "";
+
+        return std::string(1, result.back());
     }
 
     bool isComplete(const std::string &result) const
