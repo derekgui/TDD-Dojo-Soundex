@@ -37,6 +37,13 @@ TEST_F(SoundexEncoding, MultipleLettersInSingleWord)
     ASSERT_THAT(encoded, Eq("A123"));
 }
 
+TEST_F(SoundexEncoding, NotALetter)
+{
+    auto encoded = soundex.encode("A#");
+
+    ASSERT_THAT(encoded, Eq("A000"));
+}
+
 TEST_F(SoundexEncoding, MoreThanFourLettersWord)
 {
     auto encoded = soundex.encode("Abcdl");
