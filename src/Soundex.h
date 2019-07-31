@@ -8,18 +8,20 @@ class Soundex
 public:
     std::string encode(const std::string &word) const
     {
-        return zeroPad(upperFont(head(word)) + encodedDigits(tail(word)));
+        return zeroPad(upperFont(head(word)) + tail(encodedDigits(word)));
     }
 
     std::string encodedDigit(const char letter) const
     {
         auto it = encode_map.find(std::tolower(letter));
 
-        return it == encode_map.end() ? "" : it->second;
+        return it == encode_map.end() ? NotADigit : it->second;
     }
 
 private:
     static const size_t MAX_LETTERS{4};
+
+    const std::string NotADigit{"*"};
 
     const std::unordered_map<char, std::string> encode_map{{'b', "1"}, {'f', "1"}, {'p', "1"}, {'v', "1"}, {'c', "2"}, {'g', "2"}, {'j', "2"}, {'k', "2"}, {'q', "2"}, {'s', "2"}, {'x', "2"}, {'z', "2"}, {'d', "3"}, {'t', "3"}, {'l', "4"}, {'m', "5"}, {'n', "5"}, {'r', "6"}};
 
@@ -49,13 +51,15 @@ private:
     {
         std::string result;
 
-        for (size_t letterIDX = 0; letterIDX < word.length(); letterIDX++)
+        result += encodedDigit(word.front());
+
+        for (size_t letterIDX = 1; letterIDX < word.length(); letterIDX++)
         {
             if (isComplete(result))
                 break;
-
-            if ((encodedDigit(word[letterIDX]) != lastDigit(result)) || isVowel(word[letterIDX - 1]))
-                result += encodedDigit(word[letterIDX]);
+            auto digit = encodedDigit(word[letterIDX]);
+            if (digit != NotADigit && ((digit != lastDigit(result)) || isVowel(word[letterIDX - 1])))
+                result += digit;
         }
 
         return result;
@@ -79,7 +83,7 @@ private:
 
     bool isComplete(const std::string &result) const
     {
-        return result.length() == MAX_LETTERS - 1;
+        return result.length() == MAX_LETTERS;
     }
 };
 
