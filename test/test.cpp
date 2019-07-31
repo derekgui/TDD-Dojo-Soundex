@@ -43,3 +43,10 @@ TEST_F(SoundexEncoding, MoreThanFourLettersWord)
 
     ASSERT_THAT(encoded.length(), Eq(4u));
 }
+
+TEST_F(SoundexEncoding, DropVowelLetters)
+{
+    auto encoded = soundex.encode("Aaeiouyhwbcd");
+
+    ASSERT_THAT(encoded, Eq("A123"));
+}
