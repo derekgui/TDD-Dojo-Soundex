@@ -68,3 +68,10 @@ TEST_F(SoundexEncoding, CombineDuplicateDigits)
 
     ASSERT_THAT(encoded, Eq("A123"));
 }
+
+TEST_F(SoundexEncoding, TwoLetterWithSameDigitSeparatedByVowel)
+{
+
+    auto encoded = soundex.encode("Babebob");
+    ASSERT_THAT(encoded, Eq("B111"));
+}
