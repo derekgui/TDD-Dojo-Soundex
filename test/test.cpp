@@ -57,3 +57,10 @@ TEST_F(SoundexEncoding, DropVowelLetters)
 
     ASSERT_THAT(encoded, Eq("A123"));
 }
+
+TEST_F(SoundexEncoding, CombineDuplicateDigits)
+{
+    auto encoded = soundex.encode("Abfcgdt");
+
+    ASSERT_THAT(encoded, Eq("A123"));
+}
