@@ -47,16 +47,24 @@ private:
     {
         std::string result;
 
-        for (auto letter : word)
+        for (size_t letterIDX = 0; letterIDX < word.length(); letterIDX++)
         {
             if (isComplete(result))
                 break;
 
-            if (encodedDigit(letter) != lastDigit(result))
-                result += encodedDigit(letter);
+            if ((encodedDigit(word[letterIDX]) != lastDigit(result)) || isVowel(word[letterIDX - 1]))
+                result += encodedDigit(word[letterIDX]);
         }
 
         return result;
+    }
+
+    bool isVowel(const char letter) const
+    {
+
+        std::string vowel{"aeiouy"};
+
+        return vowel.find(letter) != std::string::npos;
     }
 
     std::string lastDigit(const std::string &result) const
