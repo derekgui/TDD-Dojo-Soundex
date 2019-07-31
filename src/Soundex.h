@@ -8,6 +8,9 @@ class Soundex
 public:
     std::string encode(const std::string &word) const
     {
+        if (word.empty())
+            return "";
+
         return zeroPad(upperFont(head(word)) + tail(encodedDigits(word)));
     }
 
