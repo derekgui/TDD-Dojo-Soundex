@@ -60,6 +60,10 @@ TEST_F(SoundexEncoding, DropVowelLetters)
 
 TEST_F(SoundexEncoding, CombineDuplicateDigits)
 {
+    EXPECT_THAT(soundex.encodedDigit('b'), soundex.encodedDigit('f'));
+    EXPECT_THAT(soundex.encodedDigit('c'), soundex.encodedDigit('g'));
+    EXPECT_THAT(soundex.encodedDigit('d'), soundex.encodedDigit('t'));
+
     auto encoded = soundex.encode("Abfcgdt");
 
     ASSERT_THAT(encoded, Eq("A123"));

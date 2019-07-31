@@ -11,6 +11,11 @@ public:
         return zeroPad(head(word) + encodedDigits(tail(word)));
     }
 
+    std::string encodedDigit(const char letter) const
+    {
+        return isLetterFound(letter) ? encode_map.find(letter)->second : "";
+    }
+
 private:
     static const size_t MAX_LETTERS{4};
 
@@ -36,11 +41,6 @@ private:
     bool isLetterFound(const char letter) const
     {
         return encode_map.find(letter) != encode_map.end();
-    }
-
-    std::string encodedDigit(const char letter) const
-    {
-        return isLetterFound(letter) ? encode_map.find(letter)->second : "";
     }
 
     std::string encodedDigits(const std::string &word) const
