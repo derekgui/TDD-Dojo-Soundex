@@ -30,7 +30,7 @@ private:
 
     std::string tail(const std::string &word) const
     {
-        return word.substr(1, 3);
+        return word.substr(1);
     }
 
     bool isLetterFound(const char letter) const
@@ -40,7 +40,7 @@ private:
 
     std::string encodedDigit(const char letter) const
     {
-        return isLetterFound(letter) ? encode_map.find(letter)->second : "0";
+        return isLetterFound(letter) ? encode_map.find(letter)->second : "";
     }
 
     std::string encodedDigits(const std::string &word) const
