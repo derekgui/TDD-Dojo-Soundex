@@ -49,20 +49,32 @@ private:
 
     std::string encodedDigits(const std::string &word) const
     {
-        std::string result;
+        std::string encoding;
+        encodeHead(encoding, word);
+        encodeTail(encoding, word);
 
-        result += encodedDigit(word.front());
+        return encoding;
+    }
 
-        for (size_t letterIDX = 1; letterIDX < word.length(); letterIDX++)
+    void encodeHead(std::string &encoding, const std::string &word) const
+    {
+        encoding = encodedDigit(word.front());
+    }
+
+    void encodeTail(std::string &encoding, const std::string &word) const
+    {
+        for (size_t i = 1; i < word.length(); i++)
         {
-            if (isComplete(result))
-                break;
-            auto digit = encodedDigit(word[letterIDX]);
-            if (digit != NotADigit && ((digit != lastDigit(result)) || isVowel(word[letterIDX - 1])))
-                result += digit;
+            if (!isComplete(encoding))
+                encodeLetter(encoding, word[i], word[i - 1]);
         }
+    }
 
-        return result;
+    void encodeLetter(std::string &encoding, char currentLetter, char lastLetter) const
+    {
+        auto digit = encodedDigit(currentLetter);
+        if (digit != NotADigit && ((digit != lastDigit(encoding)) || isVowel(lastLetter)))
+            encoding += digit;
     }
 
     bool isVowel(const char letter) const
