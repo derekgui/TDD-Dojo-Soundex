@@ -13,7 +13,9 @@ public:
 
     std::string encodedDigit(const char letter) const
     {
-        return isLetterFound(letter) ? encode_map.find(letter)->second : "";
+        auto it = encode_map.find(std::tolower(letter));
+
+        return it == encode_map.end() ? "" : it->second;
     }
 
 private:
@@ -41,11 +43,6 @@ private:
     std::string tail(const std::string &word) const
     {
         return word.substr(1);
-    }
-
-    bool isLetterFound(const char letter) const
-    {
-        return encode_map.find(letter) != encode_map.end();
     }
 
     std::string encodedDigits(const std::string &word) const
