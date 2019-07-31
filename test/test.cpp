@@ -87,3 +87,8 @@ TEST_F(SoundexEncoding, UppercaseFirstLetter)
 {
     ASSERT_THAT(soundex.encode("abcd"), ::testing::StartsWith("A"));
 }
+
+TEST_F(SoundexEncoding, CaseMutualWhenEncode)
+{
+    ASSERT_THAT(soundex.encode("AbCd"), Eq("A123"));
+}
