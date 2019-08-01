@@ -5,7 +5,7 @@ It serves as a purpose that continuely sharpen my tdd skills with repeatedly pra
 As in the book saying: In addition to continually seeking new knowledge, successful professionals practice their craft on a regular basis. Musicians use scales as warm-up exercises, cosmetic surgeons practice on cadavers, athletes run drills and scrimmages, speakers warm up in front of a mirror, and martial arts practioners practice **katas**. 
 
 ### Note
-Each branch is a new attempt and the master branch is project starter code.
+Each branch is a new attempt and the starter code at stater branch.
 
 ### Spec
 The Soundex algorithm encodes words into a letter plus three digits, mapping similarly sounding words to the same encoding which helps make searching more effective. Here are the rules, per [Wikipedia](http://en.wikipedia.org/wiki/Soundex):
